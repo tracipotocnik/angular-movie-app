@@ -1,0 +1,65 @@
+<form ng-submit="getResults()" class="search-container">
+    <md-input-container>
+        <input type="text" class="text-md" ng-model="search" autofocus>
+    </md-input-container>
+    <div class="clearfix">
+        <md-button class="md-raised md-primary pull-left search-btn" type="sumbit">Search</md-button>
+        <div class="filter pull-right">
+            <span class="label">Sort by</span>
+            <md-select ng-model="sortType" placeholder="Sort">
+                <md-option ng-value="option.fieldName" ng-repeat="option in sortTypes">
+                    {{option.displayName}}
+                </md-option>
+            </md-select>
+            <div class="pull-right button-wrapper">
+                <md-button ng-click="sortAsc=true; sortingActive=true" ng-class="{active : sortAsc}" class="md-fab md-mini md-primary" aria-label="Mini FAB">
+                    <ng-md-icon icon="expand_less"></ng-md-icon>
+                </md-button>
+                <md-button ng-click="sortAsc=false; sortingActive=true" ng-class="{active : !sortAsc}" class="md-fab md-mini md-primary" aria-label="Mini FAB">
+                    <ng-md-icon icon="expand_more"></ng-md-icon>
+                </md-button>
+            </div>
+        </div>
+        <div class="filter pull-right">
+            <span class="label">MPAA Rating</span>
+            <md-select ng-model="mpaaRating" placeholder="MPAA Rating">
+                <md-option ng-value="rating.fieldName" ng-repeat="rating in mpaaRatings">
+                    {{rating.displayName}}
+                </md-option>
+            </md-select>
+        </div>
+    </div>
+</form>
+
+<span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner"></span>
+
+<md-list class="results-container">
+    <md-list-item ng-repeat="movie in filteredResults = (results | filter:filterResults | orderBy:sortType:!sortAsc)">
+        <div class="poster-container">
+            <img ng-src="{{moviePosterThumb(movie)}}" class="face" ng-show="moviePosterThumb(movie)">
+        </div>
+        <div class="md-list-item-text">
+            <h3 class="movie-title">{{movie.title}} <span class="movie-year" ng-show="movie.year">({{movie.year}})</h3>
+            <h4 class="movie-rating">{{movie.mpaa_rating}}</h4>
+            <div class="score-wrapper">
+                <div class="score-block">
+                    <p class="score-title">Critic Score</p>
+                    <p class="score" ng-show="movie.ratings.critics_score">{{movie.ratings.critics_score}}</p>
+                    <p class="score none" ng-show="!movie.ratings.critics_score">N/A</p>
+                </div>
+                <div class="score-block">
+                    <p class="score-title">User Score</p>
+                    <p class="score" ng-show="movie.ratings.audience_score">{{movie.ratings.audience_score}}</p>
+                    <p class="score none" ng-show="!movie.ratings.audience_score">N/A</p>
+                </div>
+            </div>
+
+            <md-button class="md-raised md-green" ng-click="showCustomGreeting($event, movie)">
+                Details
+            </md-button>
+        </div>
+        <md-divider md-inset ng-if="!$last"></md-divider>
+    </md-list-item>
+</md-list>
+
+<p ng-show="filteredResults.length===0" class="text-md">No results. Try a different search.</p>

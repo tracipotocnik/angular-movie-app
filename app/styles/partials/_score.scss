@@ -1,0 +1,31 @@
+.score-wrapper {
+  @extend .clearfix;
+  text-align: center;
+  margin: 15px 0 18px;
+  .score-block {
+    float: left;
+    margin: 0 20px 0 0;
+    padding: 0 20px 0 0;
+    border-right: 2px solid $blue;
+    .score-title {
+      line-height: 1.2;
+      margin: 0 0 5px;
+    }
+    .score {
+      font-size: 1.5em;
+      @extend .font-bold;
+      color: $blue;
+      line-height: 1.2;
+      margin: 0;
+      &.none {
+        color: $gray-light;
+        @extend .font-regular;
+      }
+    }
+    + .score-block {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+  }
+}

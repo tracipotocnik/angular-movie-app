@@ -1,0 +1,11 @@
+.md-button.md-default-theme.md-raised.md-green {
+  @extend .font-bold;
+  background: $green;
+  color: #FFF;
+  padding: 4px 7px;
+  &:hover,
+  &:active,
+  &:focus {
+    background: darken($green, 9%);
+  }
+}

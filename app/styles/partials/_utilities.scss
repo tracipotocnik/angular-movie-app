@@ -1,0 +1,6 @@
+.spinner {
+  top: 380px !important;
+  @include breakpoint(0px $midWidth) {
+    top: 480px !important;
+  }
+}

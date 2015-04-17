@@ -1,0 +1,22 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+@import "sassy-maps/sass/_sassy-maps.scss";
+@import "breakpoint-sass/stylesheets/_breakpoint.scss";
+// endbower
+
+@import "breakpoint";
+
+@import "variables/colors";
+@import "variables/fonts";
+@import "variables/grid";
+
+@import "partials/typography";
+@import "partials/layout";
+@import "partials/utilities";
+@import "partials/buttons";
+@import "partials/header";
+@import "partials/search-box";
+@import "partials/score";
+@import "partials/results";
+@import "partials/modal";

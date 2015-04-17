@@ -1,0 +1,59 @@
+<md-dialog class="movie-modal">
+    <md-content>
+        <div class="title">
+            {{movie.title}}
+            <span class="year" ng-show="movie.year">({{movie.year}})</span>
+        </div>
+        <div ng-show="movie.synopsis" class="summary">
+            {{movie.synopsis}}
+        </div>
+        <div class="clearfix">
+            <img ng-src="{{moviePosterLg(movie)}}" class="modal-image-desktop" ng-show="moviePosterLg(movie)"/>
+            <div class="content">
+                <div class="field" ng-show="movie.mpaa_rating">
+                    <span class="field-title">Rating:</span>
+                    <span class="field-description">{{movie.mpaa_rating}}</span>
+                </div>
+                <div class="field" ng-show="movie.runtime">
+                    <span class="field-title">Runtime:</span>
+                    <span class="field-description">{{movie.runtime}} min</span>
+                </div>
+                <div class="field" ng-show="movie.release_dates.theater">
+                    <span class="field-title">Theater Release:</span>
+                    <span class="field-description">{{movie.release_dates.theater}}</span>
+                </div>
+                <div class="field" ng-show="movie.abridged_cast.length > 0">
+                    <span class="field-title">Cast:</span>
+                    <div class="cast" ng-repeat="cast in movie.abridged_cast">
+                        {{cast.name}} 
+                <span class="character" ng-show="character" ng-repeat="character in cast.characters">
+                  ({{character}})
+                </span>
+                        <span class="comma" ng-if="!$last">,</span>
+                    </div>
+                </div>
+
+                <div class="score-wrapper">
+                    <div class="score-block">
+                        <p class="score-title">Critic Score</p>
+                        <p class="score" ng-show="movie.ratings.critics_score">{{movie.ratings.critics_score}}</p>
+                        <p class="score none" ng-show="!movie.ratings.critics_score">N/A</p>
+                    </div>
+                    <div class="score-block">
+                        <p class="score-title">User Score</p>
+                        <p class="score" ng-show="movie.ratings.audience_score">{{movie.ratings.audience_score}}</p>
+                        <p class="score none" ng-show="!movie.ratings.audience_score">N/A</p>
+                    </div>
+                </div>
+            </div>
+            <img ng-src="{{moviePosterLg(movie)}}" class="modal-image-mobile" ng-show="moviePosterLg(movie)"/>
+
+        </div>
+
+    </md-content>
+    <div class="md-actions">
+        <md-button class="md-raised md-green" ng-click="closeDialog()">
+            Close
+        </md-button>
+    </div>
+</md-dialog>

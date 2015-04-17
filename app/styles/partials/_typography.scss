@@ -1,0 +1,26 @@
+body {
+  font-family: $primary-font, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+html,
+body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @extend .font-bold;
+  }
+}
+
+.text-sm {
+  font-size: 1.2em;
+}
+.text-md {
+  font-size: 1.4em;
+}
+.text-lg {
+  font-size: 2em;
+}

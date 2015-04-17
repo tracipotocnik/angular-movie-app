@@ -1,0 +1,90 @@
+.search-container {
+  padding: 20px;
+  margin: 20px 0 40px;
+  background: $background-light;
+  .search-btn {
+    font-size: 1.4em;
+    padding: 7px 11px;
+    @extend .font-ultrabold;
+    @include breakpoint(0px $mobileWidth) {
+      font-size: 1.2em;
+    }
+  }
+  .filter {
+    display: inline-block;
+    .label {
+      color: $gray-med;
+    @-moz-document url-prefix() { 
+              position: relative;
+              top: -9px;
+            }
+    }
+    @include breakpoint(0px $midWidth) {
+      clear: right;
+    }
+    + .filter {
+      @include breakpoint(0px $midWidth) {
+        margin-top: 5px;
+      }
+    }
+  }
+  md-select {
+    margin-top: 0;
+  }
+  .md-select-label {
+    font-size: 1.15em;
+  }
+  .button-wrapper {
+    position: relative;
+    top: -3px;
+    margin: 0 0 0 8px;
+    .md-button.md-fab.md-mini {
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin: 0 0 2px;
+      background: none;
+      ng-md-icon {
+        fill: $blue;
+        position: relative;
+        left: -8px;
+        top: -8px;
+      @-moz-document url-prefix() { 
+	            left: -2px;
+	            top: -9px;
+            }
+      }
+      + button {
+        margin: 2px 0 0;
+        ng-md-icon {
+          top: -7px;
+        }
+      }
+      &:hover,
+      &:not([disabled]):hover,
+      &:focus,
+      &:not([disabled]):focus,
+      &:active,
+      &:not([disabled]):active {
+        background: none;
+      }
+      &.active {
+        background: $blue;
+        ng-md-icon {
+          fill: #FFF;
+        }
+        &:hover,
+        &:not([disabled]):hover,
+        &:focus,
+        &:not([disabled]):focus,
+        &:active,
+        &:not([disabled]):active {
+          background: $blue;
+          ng-md-icon {
+            fill: #FFF;
+          }
+        }
+      }
+    }
+  }
+}
