@@ -1,12 +1,12 @@
 # angular-movie-app
 
 Allows the user to search and filter movie listings using Rotten Tomatoes' API.
-[Web Version](http://www.tracipotocnik.com/angular-movie-app)
+<br/>Live demo: http://www.tracipotocnik.com/angular-movie-app
 
 #### Run the Application
 
     npm install  
-    bower install  
+    bower install 
     grunt serve    
     
 The app will automatically generate at [http://localhost:9001/](http://localhost:9001/).
