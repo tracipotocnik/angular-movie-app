@@ -13,7 +13,7 @@ The app will automatically generate at [http://localhost:9001/](http://localhost
     
 #### Create the dist folder
 
-    grunt build    
+    grunt serve:dist    
 
 
 <br/>
