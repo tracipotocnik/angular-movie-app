@@ -59,7 +59,7 @@ angular.module('movieApp')
           }
           $http.jsonp('http://api.rottentomatoes.com/api/public/v1.0/movies.json', {
               params: {
-                  apikey: 'c3w3vf94me65rgk68qps7ekb',
+                  apikey: 'ny97sdcpqetasj8a4v2na8va',
                   callback: 'JSON_CALLBACK',
                   q: $scope.search,
                   page_limit: 50
